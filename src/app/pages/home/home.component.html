@@ -1,0 +1,14 @@
+<div class="content">
+  <header>
+    <h1 class="content__title">List of consultants</h1>  
+    <button class="content__order" (click)="toggleOrder()">ascending/descecnding</button>
+  </header>
+  <section>
+    <app-card 
+      class="content__list"
+      *ngFor="let consultant of consultantsList$ | async"
+      [consultant]="consultant" 
+      >
+    </app-card>
+  </section>
+</div>

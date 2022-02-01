@@ -1,0 +1,13 @@
+@import 'abstracts/functions';
+@import 'abstracts/mixins';
+.specialties {
+  display: flex;
+  flex-direction: column;
+  &__list {
+    @include reset-list();
+    @include padding(5px, 0px, 0px, 40px);
+    li{
+      @include margin(5px, 0px, 0px, 0px);
+    }
+  }
+}

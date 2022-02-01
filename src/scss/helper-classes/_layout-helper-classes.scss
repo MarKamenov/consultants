@@ -1,0 +1,27 @@
+@use 'sass:map';
+
+// ---------------------------------------------------------------------------------------------
+// Helper classes that change display properties for different screen sizes (mobile first approach)
+//
+// Examples:
+// class="d-none--small" would hide element starting from small screen size going up
+// class="d-none d-block-x--large" would hide element and show it only on extra large screen going up
+// ---------------------------------------------------------------------------------------------
+
+$display-properties: none, block, flex, inline-block, grid;
+
+@each $display-property in $display-properties {
+  .d-#{$display-property} {
+    display: $display-property !important;
+  }
+}
+
+@each $display-property in $display-properties {
+  @each $name, $size in $screen-breakpoints {
+    .d-#{$display-property}--#{$name} {
+      @media only screen and (min-width: $size) {
+        display: $display-property !important;
+      }
+    }
+  }
+}

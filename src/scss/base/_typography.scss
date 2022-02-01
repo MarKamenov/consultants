@@ -1,0 +1,83 @@
+html {
+  // default base font size (mobile first)
+  font-size: 14px;
+
+  // small devices base font size
+  @include screen-size(small) {
+    font-size: 13.5px;
+  }
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+h5 {
+  font-size: 1.25rem;
+}
+
+h6 {
+  font-size: 1rem;
+}
+
+body {
+  color: $font-color;
+  font-family: $font-face-primary;
+  font-weight: $font-weight-light;
+}
+
+a {
+  color: $link-color;
+  text-decoration: underline;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: $font-weight-light;
+}
+
+strong {
+  font-weight: $font-weight-bold;
+}
+
+.font-light {
+  font-weight: $font-weight-light;
+}
+
+.font-bold {
+  font-weight: $font-weight-bold;
+}
+
+// lists
+ul,
+ol {
+  &.list {
+    @include padding(0px, 15px, 0px, 15px);
+
+    li {
+      @include margin(5px, 0px, 5px, 0px);
+    }
+  }
+
+  &.unstyled {
+    list-style-type: none;
+    padding-left: 0;
+  }
+}

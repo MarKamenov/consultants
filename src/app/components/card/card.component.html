@@ -1,0 +1,24 @@
+<div class="card">
+  <div class="card__wrapper">
+    <app-image-card
+      [image]="consultant.image"
+    ></app-image-card>
+    <div class="card__wrapper__description">
+      <div class="card__wrapper__description__content">
+        <div class="card__wrapper__description__content__title">
+          <h2><strong>{{ consultant.fullname }}</strong></h2>
+          <p>{{ consultant.type }}</p>
+        </div>
+        <div class="card__wrapper__description__content__specialties">
+          <app-specialties
+            [specialties]="consultant.specialties"
+          ></app-specialties>
+        </div>
+        <div class="card__wrapper__description__content__address">
+          <h3>🌎<strong>Locations</strong></h3>
+          <p>{{ consultant.locations }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

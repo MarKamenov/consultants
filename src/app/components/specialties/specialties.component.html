@@ -1,0 +1,13 @@
+<div class="specialties">
+  <h3>🩺<strong>Specialties</strong></h3>
+  <ng-container *ngIf="isArray(specialties); else str">
+      <ul class="specialties__list"> 
+          <li *ngFor="let specialty of specialties">
+            {{specialty}}
+          </li>                   
+      </ul>
+  </ng-container>
+  <ng-template #str>
+      <p class="specialties__list">{{specialties}}</p>
+  </ng-template>
+</div>

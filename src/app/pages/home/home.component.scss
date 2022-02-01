@@ -1,0 +1,29 @@
+@import "abstracts/variables";
+@import "abstracts/mixins";
+
+.content {
+  margin-top: 3rem;
+  max-width: calc(1200px + (2 * 2rem));
+  margin: 0 auto;
+  @include padding(0px, 1rem, 0px, 1rem);
+  header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+  }
+  &__title {
+    @include margin(2rem, 0px, 2rem, 0px);
+  }
+
+  &__order {
+    @include padding(5px, 10px, 5px, 10px);
+    background-color: $brand-color-one;
+    color:$brand-color-four;
+    @include border-radius(5px,5px,5px,5px)
+  }
+
+  &__list {
+    @include margin(0px, 0px, 1.5rem, 0px);
+  }
+}

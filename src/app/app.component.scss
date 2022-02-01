@@ -1,0 +1,11 @@
+@import 'abstracts/variables';
+$content-background-color: $primary-background;
+
+.app {
+  height: 100%;
+  display: flex;
+  background-color: $content-background-color;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
