@@ -1668,40 +1668,61 @@
   resolved "https://registry.yarnpkg.com/@ngtools/webpack/-/webpack-16.2.16.tgz#512da8f3459faafd0cc1f7f7cbec96b678377be6"
   integrity sha512-4gm2allK0Pjy/Lxb9IGRnhEZNEOJSOTWwy09VOdHouV2ODRK7Tto2LgteaFJUUSLkuvWRsI7pfuA6yrz8KDfHw==
 
-"@ngxs/devtools-plugin@3.7.2":
-  version "3.7.2"
-  resolved "https://registry.yarnpkg.com/@ngxs/devtools-plugin/-/devtools-plugin-3.7.2.tgz#995424e5faf48df55a1b54b9e1b36ce9c47c1d52"
-  integrity sha512-kRuOx1GPXHHZZAeQMm1J1msTZxjgiAUY4NR7bzaQPn+UwSY2OgGEsd8driMM5YSTF1hOjcFHinaLCM1vmu8FmQ==
+"@ngxs/devtools-plugin@18.1.6":
+  version "18.1.6"
+  resolved "https://registry.yarnpkg.com/@ngxs/devtools-plugin/-/devtools-plugin-18.1.6.tgz#ab4cebc5a952b68a630b197c880ca009560884b4"
+  integrity sha512-v0ekOJtv1ZS/mLlyUmwhHIR8ruGKwJnbh0F8ejiEpN1aSJwaLNkg5lfdxC39uQzD66nuimi4i+mflP6veT2IeQ==
   dependencies:
-    tslib "^1.9.0"
+    tslib "^2.3.0"
 
-"@ngxs/form-plugin@3.7.2":
-  version "3.7.2"
-  resolved "https://registry.yarnpkg.com/@ngxs/form-plugin/-/form-plugin-3.7.2.tgz#c9dc94f46f80f3c9f6f5e97e9070bea7535906fb"
-  integrity sha512-oUv/XXrFCFmyBLV8q4D1kAYdXa4Kc7fyhBhB1/SxLz278G/dzTUY61UZk4RMjhRhosZF0ncG//IB/Kevs/J8KA==
+"@ngxs/form-plugin@18.1.6":
+  version "18.1.6"
+  resolved "https://registry.yarnpkg.com/@ngxs/form-plugin/-/form-plugin-18.1.6.tgz#e4cffd31d8cd342409e8890cd37bca8f2e0d9719"
+  integrity sha512-FY5S9X3p/2exF1h4wu/c3CASPifOoHicdDCbjgUdF8+TnMpWf6kWk0yOkAXIOkaVxrf7RQAAsHKmgMeDfBUhaw==
   dependencies:
-    tslib "^1.9.0"
+    tslib "^2.3.0"
 
-"@ngxs/logger-plugin@3.7.2":
-  version "3.7.2"
-  resolved "https://registry.yarnpkg.com/@ngxs/logger-plugin/-/logger-plugin-3.7.2.tgz#32dc7b0c1feddc41dab159f015bc73381cc249c6"
-  integrity sha512-JGqgBUX+r/1uV0IkHMJtGyAFDrbjbUZWgmmlXCaJ4t1r+cY/TPJm5BeLtiIqdewf2ELfzOfA682mbk3EOlRymw==
+"@ngxs/hmr-plugin@18.1.6":
+  version "18.1.6"
+  resolved "https://registry.yarnpkg.com/@ngxs/hmr-plugin/-/hmr-plugin-18.1.6.tgz#c5ccb60d50341ffdb02ca675c0b39c79f845fcd6"
+  integrity sha512-zBrgE3tFHYVpiXYWV2tamPPr7ea/bTJ9f0vgaD7Q+Vya7mC3cau021NlE1gBODrUtiZ0j8xckFeu3lWGmltJeQ==
   dependencies:
-    tslib "^1.9.0"
+    tslib "^2.3.0"
 
-"@ngxs/storage-plugin@3.7.2":
-  version "3.7.2"
-  resolved "https://registry.yarnpkg.com/@ngxs/storage-plugin/-/storage-plugin-3.7.2.tgz#b04ce7d7a4bfa7ab6b453af9a1198acf886b8630"
-  integrity sha512-yK+Kqgd3DdWcGbKnlgcu+aY1awYgFiZj6k0UhPJQ0hNn9GfQrwntTlcBKYQePZqrQ2zazNiXFKqcFut6DYyjuQ==
+"@ngxs/logger-plugin@18.1.6":
+  version "18.1.6"
+  resolved "https://registry.yarnpkg.com/@ngxs/logger-plugin/-/logger-plugin-18.1.6.tgz#9add277bb0cd01109b434703de6f76c4bbfaf12a"
+  integrity sha512-hKjb/9+zH7s//kXhcdLdKe1uTBfTV2RQIQaLxe0WP7wvAcLjp+kXJyYeH6msDGQ82U4aowFv0PCou5GmVgXkqQ==
   dependencies:
-    tslib "^1.9.0"
+    tslib "^2.3.0"
 
-"@ngxs/store@3.7.2":
-  version "3.7.2"
-  resolved "https://registry.yarnpkg.com/@ngxs/store/-/store-3.7.2.tgz#1088b0669adc382d36ca7ae8438c603e55879b42"
-  integrity sha512-1cnAjHOGCovfvhjtcAWBajrMXos97Un3c8ekKoS8FIHnq3aQOzY/ePspDRNi9kTcuBJ/r/xl097JC1ssEuNbyg==
+"@ngxs/router-plugin@18.1.6":
+  version "18.1.6"
+  resolved "https://registry.yarnpkg.com/@ngxs/router-plugin/-/router-plugin-18.1.6.tgz#621145aad910dc339951b949cd7d4bb59657ff20"
+  integrity sha512-GFeZ6h6WKMl6OVtN3NO8nYamWFbt8+7FQKfRWrbNg7FU4ekl+FAuiNbaNQ2nbYAvs4dkfUphQrjh8Vgns6Z7HQ==
   dependencies:
-    tslib "^1.9.0"
+    tslib "^2.3.0"
+
+"@ngxs/storage-plugin@18.1.6":
+  version "18.1.6"
+  resolved "https://registry.yarnpkg.com/@ngxs/storage-plugin/-/storage-plugin-18.1.6.tgz#a1a4ff1fd827ca353cd687b019174562a93106e5"
+  integrity sha512-EWeuZppToJU81IpjL5yhFaG1rY1arTfEkYj9bruyy0HXO5CHoSRggqgrRzpe5EhDNEnm1iWcRZJAxuYRRr3vUg==
+  dependencies:
+    tslib "^2.3.0"
+
+"@ngxs/store@18.1.6":
+  version "18.1.6"
+  resolved "https://registry.yarnpkg.com/@ngxs/store/-/store-18.1.6.tgz#dbb6a1e9d4f3f1c6a823c6a2f58a50441062956a"
+  integrity sha512-2CZC/v/S6MEwXmVB1w1cRbicrL26TI4QASRu6xXV+vK5gqFhEz3FzLG5ZvVMcH986Vhv/Mo0esAOABA2qWYJNA==
+  dependencies:
+    tslib "^2.3.0"
+
+"@ngxs/websocket-plugin@18.1.6":
+  version "18.1.6"
+  resolved "https://registry.yarnpkg.com/@ngxs/websocket-plugin/-/websocket-plugin-18.1.6.tgz#7d066b56e098f358549fd7aa1909f21e9a327079"
+  integrity sha512-Mm7xTaYPwwAWjOzJC9qncJjVaFkzopFhXdHs1VkUBr6BJkYyW/pvcO9+NuNKWbEnZlGGNaaASmE19LbttW3gpw==
+  dependencies:
+    tslib "^2.3.0"
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
