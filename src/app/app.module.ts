@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { ConsultantsState } from './state/consultant.state';
 import { NgxsModule } from '@ngxs/store';
@@ -17,19 +17,18 @@ import { NgxsWebSocketPluginModule } from '@ngxs/websocket-plugin';
   declarations: [
     AppComponent
   ],
+  bootstrap: [AppComponent],
   imports: [
     NgxsModule.forRoot([ConsultantsState]),
     NgxsReduxDevtoolsPluginModule.forRoot(),
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
     NgxsModule.forRoot([], { developmentMode: /** !environment.production */ false }),
     NgxsFormPluginModule.forRoot(),
     NgxsLoggerPluginModule.forRoot(),
     NgxsRouterPluginModule.forRoot(),
     NgxsStoragePluginModule.forRoot({ keys: '*' }),
-    NgxsWebSocketPluginModule.forRoot(),
-  ],
-  bootstrap: [AppComponent]
+    NgxsWebSocketPluginModule.forRoot()],
+  providers: [provideHttpClient(withInterceptorsFromDi())]
 })
 export class AppModule { }
