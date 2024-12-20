@@ -2,9 +2,8 @@
 @import "abstracts/mixins";
 
 .content {
-  margin-top: 3rem;
   max-width: calc(1200px + (2 * 2rem));
-  margin: 0 auto;
+  margin: 2rem auto 0;
   @include padding(0px, 1rem, 0px, 1rem);
 
   header {
@@ -21,8 +20,8 @@
   &__order {
     flex-shrink: 0;
     @include padding(5px, 10px, 5px, 10px);
-    background-color: $brand-color-one;
-    color: $brand-color-four;
+    background-color: $secondary-background;
+    color: $brand-color-two;
     @include font-size(14px);
     @include border-radius(5px, 5px, 5px, 5px);
     max-height: calculate-rem(42px);
