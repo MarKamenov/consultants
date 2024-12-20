@@ -137,7 +137,6 @@
       }
     }
   },
-  "defaultProject": "demo-consultants",
   "cli": {
     "analytics": false
   }

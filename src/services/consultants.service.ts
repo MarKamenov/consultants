@@ -22,9 +22,5 @@ export class ConsultantsService {
       params = params.set('query', query);
     }
     return this.httpService.get<any[]>(this.apiUrl, { params })
-    // .pipe(
-    //   tap((data) => console.log('Settings: ', data)),
-    //   map((data: any) => data.records.page.map(item => new ConsultantDTO(item)
-    //   )))
   }
 }
