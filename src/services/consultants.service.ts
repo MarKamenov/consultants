@@ -1,17 +1,30 @@
 import { inject, Injectable } from '@angular/core';
+import { Observable } from 'rxjs/internal/Observable';
+import { HttpParams } from '@angular/common/http';
+
 import { ApiBaseService } from './api-base.service';
-import { map } from 'rxjs/operators';
-import { ConsultantDTO } from './../models'
 
 @Injectable({
   providedIn: 'root',
 })
 export class ConsultantsService {
-  private readonly apiUrl = 'https://search-api.swiftype.com/api/v1/public/engines/search.json?engine_key=sR_cCweEaptts3ExMPzv&page=1&per_page=20';
+  private readonly apiUrl = 'https://search-api.swiftype.com/api/v1/public/engines/search.json?engine_key=sR_cCweEaptts3ExMPzv';
   private httpService = inject(ApiBaseService)
   /**
    * Gets: gets list of consultants ,
    */
-  public consultantstems$ = this.httpService.get<any[]>(this.apiUrl).pipe(map((data: any) => data.records.page.map(item => new ConsultantDTO(item)
-  )))
+  public consultantstems$ = (page = 1, perPage = 20, query?: string): Observable<any> => {
+    let params = new HttpParams()
+      .set('page', page)
+      .set('per_page', perPage);
+
+    if (query) {
+      params = params.set('query', query);
+    }
+    return this.httpService.get<any[]>(this.apiUrl, { params })
+    // .pipe(
+    //   tap((data) => console.log('Settings: ', data)),
+    //   map((data: any) => data.records.page.map(item => new ConsultantDTO(item)
+    //   )))
+  }
 }

@@ -1,16 +1,19 @@
+@let currentTheme = isDarkTheme();
 <div class="content">
   <header>
     <h1 class="content__title">List of consultants</h1>
-    <button class="content__order" (click)="toggleOrder()">  {{ isAscendingSort() ? 'Ascending' : 'Descending' }}</button>
+    <div class="content__buttons">
+      <button class="content__order" (click)="toggleOrder()"> {{ isAscendingSort() ? 'Ascending' : 'Descending'
+        }}</button>
+      <button class="content__theme" (click)="toggleTheme()"> {{ currentTheme ? '&#127770;' : '&#127774;'
+        }}</button>
+    </div>
   </header>
   <section>
     @for (consultant of consultantsList$ | async; track consultant.fullname) {
-      <app-card
-      class="content__list"
-      [consultant]="consultant"
-      />
-      } @empty {
-      <div>There are no items.</div>
-      }
+    <app-card class="content__list" [consultant]="consultant" />
+    } @empty {
+    <div>There are no items.</div>
+    }
   </section>
 </div>
