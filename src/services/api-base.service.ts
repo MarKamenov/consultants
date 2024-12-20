@@ -13,10 +13,8 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class ApiBaseService {
-  constructor(private http: HttpClient) {
-    // This service can now make HTTP requests via `this.http`.
-  }
 
+  private http = inject(HttpClient)
   /**
    * GET: get api request.
    *
@@ -40,7 +38,6 @@ export class ApiBaseService {
         `Backend returned code ${error.status}, body was: `, error.error);
     }
     // Return an observable with a user-facing error message.
-    return throwError(
-      'Something bad happened; please try again later.');
+    return throwError(() => new Error('Something bad happened; please try again later.'))
   }
 }

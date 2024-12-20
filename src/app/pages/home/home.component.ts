@@ -1,34 +1,38 @@
-import { ChangeDetectionStrategy, Component, inject, OnInit, signal } from '@angular/core';
-import { Store } from '@ngxs/store';
 import { Observable } from 'rxjs';
+import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
+import { Store } from '@ngxs/store';
+
 import { IConsultant } from '../../../models';
-import { LoadList, ToggleOrder } from '../../state/consultant.actions';
+import { ToggleOrder } from '../../state/consultant.actions';
 import { ConsultantsState } from '../../state/consultant.state';
+import { ThemeService } from '../../../services';
 @Component({
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: false
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
 
-  public readonly consultantsList$: Observable<IConsultant[]> = inject(Store).select(ConsultantsState.consultants);
+  private store = inject(Store)
+  private themeService = inject(ThemeService)
 
+  protected readonly consultantsList$: Observable<IConsultant[]> = this.store.select(ConsultantsState.consultants);
+
+  protected isDarkTheme = this.themeService.isDarkTheme();
 
   protected isAscendingSort = signal<boolean>(true);
-
-  public constructor(private store: Store) { }
-
-  public ngOnInit(): void {
-    this.store.dispatch(new LoadList());
-  }
 
   /**
    * toggle order
    */
-  public toggleOrder() {
-    // this.isAscendingSort = !this.isAscendingSort
+  protected toggleOrder() {
     this.isAscendingSort.update(isAcs => !isAcs);
     this.store.dispatch(new ToggleOrder(this.isAscendingSort()))
   }
+  // toggle theme
+  protected toggleTheme() {
+    this.themeService.toggleTheme()
+  }
+
 }
