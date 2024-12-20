@@ -2,25 +2,32 @@
 @import "abstracts/mixins";
 
 .content {
-  margin-top: 3rem;
   max-width: calc(1200px + (2 * 2rem));
-  margin: 0 auto;
+  margin: 2rem auto 0;
   @include padding(0px, 1rem, 0px, 1rem);
-  header{
+
+  header {
     display: flex;
     align-items: center;
     justify-content: space-between;
 
   }
+
   &__title {
     @include margin(2rem, 0px, 2rem, 0px);
   }
 
   &__order {
+    flex-shrink: 0;
     @include padding(5px, 10px, 5px, 10px);
-    background-color: $brand-color-one;
-    color:$brand-color-four;
-    @include border-radius(5px,5px,5px,5px)
+    background-color: $secondary-background;
+    color: $brand-color-two;
+    @include font-size(14px);
+    @include border-radius(5px, 5px, 5px, 5px);
+    max-height: calculate-rem(42px);
+    min-width: calculate-rem(100px);
+    outline: none;
+    white-space: nowrap;
   }
 
   &__list {

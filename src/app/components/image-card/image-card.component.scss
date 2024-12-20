@@ -2,9 +2,10 @@
 @import "abstracts/mixins";
 @import "abstracts/functions";
 
-img{
-    width: 100%;
-    @include screen-size(small){
-        width: auto;
-      }
+img {
+  width: 100%;
+
+  @include screen-size(small) {
+    width: auto;
+  }
 }

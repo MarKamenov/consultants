@@ -1,21 +1,21 @@
 import { Action, Selector, State, StateContext } from '@ngxs/store';
 import { IConsultant } from '../../models';
 import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { catchError, tap } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
-import { ConsultantsService } from 'src/services';
+import { ConsultantsService } from '../../services';
 import { LoadList, ToggleOrder } from './consultant.actions';
 
 interface IConsultantsModel {
   consultants: IConsultant[];
-  isAscending:boolean
+  isAscending: boolean
 }
 
 @State<IConsultantsModel>({
   name: 'consultants',
   defaults: {
     consultants: [],
-    isAscending:true
+    isAscending: true
   },
 })
 @Injectable()
@@ -30,7 +30,7 @@ export class ConsultantsState {
     return state.isAscending;
   }
 
-  public constructor(	private consultantsService: ConsultantsService) {}
+  public constructor(private consultantsService: ConsultantsService) { }
 
   @Action(LoadList)
   public loadList({
@@ -39,8 +39,8 @@ export class ConsultantsState {
     return this.consultantsService.consultantstems$.pipe(
       tap((result: IConsultant[]) => {
         patchState({
-          consultants: result.sort((a,b) => {
-            
+          consultants: result.sort((a, b) => {
+
             if (a.firstname < b.firstname) {
               return -1;
             }
@@ -48,29 +48,33 @@ export class ConsultantsState {
               return 1;
             }
             return 0;
-          } ),
+          }),
         });
-      })
+      }),
+      catchError((error) => {
+        throw error;
+      }),
     );
   }
 
   @Action(ToggleOrder)
   toggleOrder(
     { getState, setState }: StateContext<IConsultantsModel>,
-    {isAscending}: ToggleOrder) {
-      const state = getState();
-      state.consultants.sort((a,b) => {        
-        if (a.firstname < b.firstname) {
-          return isAscending ? -1 : 1;
-        }
-        if (a.firstname > b.firstname) {
-          return isAscending ? 1 : -1;
-        }
-        return 0;
-      } ),
+    { isAscending }: ToggleOrder) {
+    const state = getState();
+    const newConsultants = [...state.consultants]
+    newConsultants.sort((a, b) => {
+      if (a.firstname < b.firstname) {
+        return isAscending ? -1 : 1;
+      }
+      if (a.firstname > b.firstname) {
+        return isAscending ? 1 : -1;
+      }
+      return 0;
+    }),
       setState({
-      consultants: [...state.consultants],
-      isAscending:isAscending
-    });
+        consultants: newConsultants,
+        isAscending
+      });
   }
 }

@@ -1,40 +1,49 @@
 @import "abstracts/variables";
 @import "abstracts/mixins";
 @import "abstracts/functions";
+
 :host {
   display: block;
   @include border(1px, solid, $input-border-color);
   @include border-radius(3px, 3px, 3px, 3px);
   background-color: $secondary-background;
 }
+
 .card {
   display: flex;
   flex-direction: column;
+
   &__wrapper {
     display: flex;
-    flex-direction:column;
-    @include screen-size(small){
+    flex-direction: column;
+
+    @include screen-size(small) {
       flex-direction: row;
     }
+
     &__description {
       display: flex;
       flex-direction: column;
       @include padding(1rem, 1rem, 1rem, 2rem);
       justify-content: space-between;
+
       &__content {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         height: 100%;
+
         &__title {
           p {
             @include margin(7px, null, null, null);
           }
         }
+
         &__specialties {
           @include reset-list();
           display: flex;
         }
+
         &__address {
           p {
             @include margin(7px, null, null, 40px);
