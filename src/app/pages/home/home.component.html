@@ -1,14 +1,16 @@
 <div class="content">
   <header>
-    <h1 class="content__title">List of consultants</h1>  
-    <button class="content__order" (click)="toggleOrder()">ascending/descecnding</button>
+    <h1 class="content__title">List of consultants</h1>
+    <button class="content__order" (click)="toggleOrder()">  {{ isAscendingSort() ? 'Ascending' : 'Descending' }}</button>
   </header>
   <section>
-    <app-card 
+    @for (consultant of consultantsList$ | async; track consultant.fullname) {
+      <app-card
       class="content__list"
-      *ngFor="let consultant of consultantsList$ | async"
-      [consultant]="consultant" 
-      >
-    </app-card>
+      [consultant]="consultant"
+      />
+      } @empty {
+      <div>There are no items.</div>
+      }
   </section>
 </div>

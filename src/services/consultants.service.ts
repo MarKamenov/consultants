@@ -8,14 +8,7 @@ import { ConsultantDTO } from './../models'
 })
 export class ConsultantsService {
   private readonly apiUrl = 'https://search-api.swiftype.com/api/v1/public/engines/search.json?engine_key=sR_cCweEaptts3ExMPzv&page=1&per_page=20';
-  private httpService = inject(ApiBaseService);
-
-  constructor() {
-    this.httpService.get(this.apiUrl)
-      .subscribe(data => {
-        console.log('DATA', data)
-      });
-  }
+  private httpService = inject(ApiBaseService)
   /**
    * Gets: gets list of consultants ,
    */

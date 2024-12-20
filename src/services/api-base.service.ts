@@ -13,7 +13,9 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class ApiBaseService {
-  private http = inject(HttpClient);
+  constructor(private http: HttpClient) {
+    // This service can now make HTTP requests via `this.http`.
+  }
 
   /**
    * GET: get api request.

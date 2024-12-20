@@ -1,7 +1,7 @@
 import { Action, Selector, State, StateContext } from '@ngxs/store';
 import { IConsultant } from '../../models';
 import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { catchError, tap } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { ConsultantsService } from '../../services';
 import { LoadList, ToggleOrder } from './consultant.actions';
@@ -38,7 +38,6 @@ export class ConsultantsState {
   }: StateContext<IConsultantsModel>): Observable<IConsultant[]> {
     return this.consultantsService.consultantstems$.pipe(
       tap((result: IConsultant[]) => {
-        console.log('test', result)
         patchState({
           consultants: result.sort((a, b) => {
 
@@ -51,7 +50,10 @@ export class ConsultantsState {
             return 0;
           }),
         });
-      })
+      }),
+      catchError((error) => {
+        throw error;
+      }),
     );
   }
 
@@ -60,7 +62,8 @@ export class ConsultantsState {
     { getState, setState }: StateContext<IConsultantsModel>,
     { isAscending }: ToggleOrder) {
     const state = getState();
-    state.consultants.sort((a, b) => {
+    const newConsultants = [...state.consultants]
+    newConsultants.sort((a, b) => {
       if (a.firstname < b.firstname) {
         return isAscending ? -1 : 1;
       }
@@ -70,8 +73,8 @@ export class ConsultantsState {
       return 0;
     }),
       setState({
-        consultants: [...state.consultants],
-        isAscending: isAscending
+        consultants: newConsultants,
+        isAscending
       });
   }
 }

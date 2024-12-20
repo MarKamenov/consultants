@@ -1,9 +1,10 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-specialties',
-  templateUrl: './specialties.component.html',
-  styleUrls: ['./specialties.component.scss'],
+    selector: 'app-specialties',
+    templateUrl: './specialties.component.html',
+    styleUrls: ['./specialties.component.scss'],
+    standalone: false
 })
 export class SpecialtiesComponent {
 
