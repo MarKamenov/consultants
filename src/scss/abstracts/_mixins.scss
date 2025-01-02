@@ -4,27 +4,27 @@
 // media queries and breakpoints
 // ---------------------------------------------------------------------------------------------
 @mixin screen-size($breakpoint) {
-	@media only screen and (min-width: map.get($screen-breakpoints, $breakpoint)) {
-		@content;
-	}
+  @media only screen and (min-width: map.get($screen-breakpoints, $breakpoint)) {
+    @content;
+  }
 }
 
 // ---------------------------------------------------------------------------------------------
 // focus
 // ---------------------------------------------------------------------------------------------
 @mixin focus($box-shadow-properties) {
-	outline: 0;
+  outline: 0;
 
-	&:focus {
-		transition: box-shadow 0.2s;
-		box-shadow: $box-shadow-properties $link-focus-color;
-	}
+  &:focus {
+    transition: box-shadow 0.2s;
+    box-shadow: $box-shadow-properties $link-focus-color;
+  }
 
-	&:hover,
-	&:active {
-		transition: box-shadow 0.2s;
-		box-shadow: $box-shadow-properties transparent;
-	}
+  &:hover,
+  &:active {
+    transition: box-shadow 0.2s;
+    box-shadow: $box-shadow-properties transparent;
+  }
 }
 
 // ---------------------------------------------------------------------------------------------
@@ -33,8 +33,8 @@
 // calculate font sizes - convert size to rem and have pixels as fallback
 // ---------------------------------------------------------------------------------------------
 @mixin font-size($size) {
-	font-size: $size;
-	font-size: calculate-rem($size);
+  font-size: $size;
+  font-size: calculate-rem($size);
 }
 
 // ---------------------------------------------------------------------------------------------
@@ -43,10 +43,10 @@
 // padding
 // ---------------------------------------------------------------------------------------------
 @mixin padding($padding-top, $padding-right, $padding-bottom, $padding-left) {
-	padding-top: calculate-rem($padding-top);
-	padding-right: calculate-rem($padding-right);
-	padding-bottom: calculate-rem($padding-bottom);
-	padding-left: calculate-rem($padding-left);
+  padding-top: calculate-rem($padding-top);
+  padding-right: calculate-rem($padding-right);
+  padding-bottom: calculate-rem($padding-bottom);
+  padding-left: calculate-rem($padding-left);
 }
 
 // ---------------------------------------------------------------------------------------------
@@ -55,10 +55,10 @@
 // margin
 // ---------------------------------------------------------------------------------------------
 @mixin margin($margin-top, $margin-right, $margin-bottom, $margin-left) {
-	margin-top: calculate-rem($margin-top);
-	margin-right: calculate-rem($margin-right);
-	margin-bottom: calculate-rem($margin-bottom);
-	margin-left: calculate-rem($margin-left);
+  margin-top: calculate-rem($margin-top);
+  margin-right: calculate-rem($margin-right);
+  margin-bottom: calculate-rem($margin-bottom);
+  margin-left: calculate-rem($margin-left);
 }
 
 // ---------------------------------------------------------------------------------------------
@@ -67,11 +67,11 @@
 // position absolute
 // ---------------------------------------------------------------------------------------------
 @mixin position-absolute($top, $right, $bottom, $left) {
-	position: absolute;
-	top: calculate-rem($top);
-	right: calculate-rem($right);
-	bottom: calculate-rem($bottom);
-	left: calculate-rem($left);
+  position: absolute;
+  top: calculate-rem($top);
+  right: calculate-rem($right);
+  bottom: calculate-rem($bottom);
+  left: calculate-rem($left);
 }
 
 // ---------------------------------------------------------------------------------------------
@@ -81,8 +81,8 @@
 // help: input height and width or just width which makes height the same
 // ---------------------------------------------------------------------------------------------
 @mixin box($box-width, $box-height: $box-width) {
-	width: calculate-rem($box-width);
-	height: calculate-rem($box-height);
+  width: calculate-rem($box-width);
+  height: calculate-rem($box-height);
 }
 
 // ---------------------------------------------------------------------------------------------
@@ -92,17 +92,19 @@
 // help: leave border-sides blank for all side the same
 // ---------------------------------------------------------------------------------------------
 @mixin border($border-width, $border-style, $border-color, $border-sides: '') {
-	@if ($border-style != '') {
-		@if ($border-sides== '') {
-			border: $border-width $border-style $border-color;
-		} @else {
-			@each $border-side in $border-sides {
-				@if ($border-side== 'top' or $border-side== 'right' or $border-side== 'bottom' or $border-side== 'left') {
-					border-#{$border-side}: $border-width $border-style $border-color;
-				}
-			}
-		}
-	}
+  @if ($border-style !='') {
+    @if ($border-sides=='') {
+      border: $border-width $border-style $border-color;
+    }
+
+    @else {
+      @each $border-side in $border-sides {
+        @if ($border-side=='top' or $border-side=='right' or $border-side=='bottom' or $border-side=='left') {
+          border-#{$border-side}: $border-width $border-style $border-color;
+        }
+      }
+    }
+  }
 }
 
 // ---------------------------------------------------------------------------------------------
@@ -111,11 +113,11 @@
 // border radius
 // ---------------------------------------------------------------------------------------------
 @mixin border-radius($top-left, $top-right, $bottom-right, $bottom-left) {
-	border-top-left-radius: $top-left;
-	border-top-right-radius: $top-right;
-	border-bottom-right-radius: $bottom-right;
-	border-bottom-left-radius: $bottom-left;
-	background-clip: padding-box;
+  border-top-left-radius: $top-left;
+  border-top-right-radius: $top-right;
+  border-bottom-right-radius: $bottom-right;
+  border-bottom-left-radius: $bottom-left;
+  background-clip: padding-box;
 }
 
 
@@ -125,8 +127,25 @@
 // reset ul box
 // ---------------------------------------------------------------------------------------------
 @mixin reset-list() {
-	list-style-type: none;
-	padding: 0;
-	margin: 0;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
+// ---------------------------------------------------------------------------------------------
+// Center elements
+// ---------------------------------------------------------------------------------------------
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// ---------------------------------------------------------------------------------------------
+// Dark theme
+// ---------------------------------------------------------------------------------------------
+@mixin dark-mode {
+  &.dark {
+    @content;
+  }
+}

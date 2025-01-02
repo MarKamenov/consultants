@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { provideHttpClient, withFetch } from '@angular/common/http';
@@ -25,6 +26,7 @@ const ngxsConfig: NgxsModuleOptions = {
   bootstrap: [AppComponent],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
   ],
   providers: [provideHttpClient(withFetch()), provideStore([ConsultantsState], ngxsConfig)]

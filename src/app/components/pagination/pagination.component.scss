@@ -1,0 +1,75 @@
+@import "abstracts/variables";
+@import "abstracts/mixins";
+
+.pagination {
+  display: flex;
+  gap: .5rem;
+
+  &__controls {
+    display: flex;
+    align-items: center;
+  }
+
+  &__pages {
+    display: flex;
+  }
+
+  &__button {
+    flex-shrink: 0;
+    @include padding(5px, 10px, 5px, 10px);
+    @include border-radius(10px, 10px, 10px, 10px);
+    background: $secondary-background;
+    color: $brand-color-two;
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    &:not(:disabled):hover {
+      background: darken($secondary-background, 5%);
+    }
+
+    &:first-of-type {
+      @include border-radius(10px, 0px, 0px, 10px);
+    }
+
+    &:last-of-type {
+      @include border-radius(0px, 10px, 10px, 0px);
+    }
+  }
+
+  &__page-button {
+    @include padding(5px, 10px, 5px, 10px);
+    background-color: $secondary-background;
+    color: $brand-color-two;
+
+    &--active {
+      background-color: $brand-color-two;
+      color: $brand-color-four;
+    }
+  }
+
+  &__per-page {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: $brand-color-two;
+  }
+
+  &__select {
+    @include padding(5px, 0px, 5px, 0px);
+    @include border-radius(5px, 5px, 5px, 5px);
+    background: $primary-background;
+    color: $brand-color-two;
+    cursor: pointer;
+  }
+
+  label[htmlFor="items_per_page"] {
+    display: none;
+
+    @include screen-size('small') {
+      display: inline-block;
+    }
+  }
+}

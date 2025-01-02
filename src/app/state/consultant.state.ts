@@ -1,6 +1,6 @@
 import { Action, NgxsOnInit, Selector, State, StateContext } from '@ngxs/store';
 import { Observable } from 'rxjs';
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { catchError, tap } from 'rxjs/operators';
 
 import { IConsultant } from '../../models';
@@ -23,6 +23,8 @@ interface IConsultantsModel {
 @Injectable()
 export class ConsultantsState implements NgxsOnInit {
 
+  private consultantsService = inject(ConsultantsService)
+
   ngxsOnInit(ctx: StateContext<IConsultantsModel>) {
     ctx.dispatch(new LoadList());
   }
@@ -36,8 +38,6 @@ export class ConsultantsState implements NgxsOnInit {
   static isAscending(state: IConsultantsModel): boolean {
     return state.isAscending;
   }
-
-  public constructor(private consultantsService: ConsultantsService) { }
 
   @Action(LoadList)
   public loadList({
