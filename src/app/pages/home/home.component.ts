@@ -1,11 +1,11 @@
 import { Observable } from 'rxjs';
-import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, effect, inject, signal } from '@angular/core';
 import { Store } from '@ngxs/store';
 
 import { IConsultant } from '../../../models';
-import { ToggleOrder } from '../../state/consultant.actions';
+import { LoadList, ToggleOrder } from '../../state/consultant.actions';
 import { ConsultantsState } from '../../state/consultant.state';
-import { ThemeService } from '../../../services';
+import { PaginationService, ThemeService } from '../../../services';
 @Component({
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
@@ -14,8 +14,21 @@ import { ThemeService } from '../../../services';
 })
 export class HomeComponent {
 
-  private store = inject(Store)
-  private themeService = inject(ThemeService)
+  protected store = inject(Store)
+  protected themeService = inject(ThemeService)
+  protected paginationService = inject(PaginationService);
+
+  constructor() {
+    // Create an effect to watch for pagination changes
+    effect(() => {
+      // Access signals to create dependencies
+      this.paginationService.currentPage();
+      this.paginationService.itemsPerPage();
+      // call api if any of the above signals change
+      this.store.dispatch(new LoadList())
+    });
+  }
+
 
   protected readonly consultantsList$: Observable<IConsultant[]> = this.store.select(ConsultantsState.consultants);
 

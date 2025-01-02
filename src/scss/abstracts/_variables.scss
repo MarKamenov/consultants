@@ -1,6 +1,8 @@
 @import 'functions';
 @import 'mixins';
 
+$transition-duration: .2;
+
 // -----------------------------------------------------------------------------------------------
 // global variables
 // store colors, font stacks, or any CSS value you think you'll want to reuse
@@ -10,6 +12,7 @@
 // screen breakpoints
 // -----------------------------------------------------------------------------------------------
 $screen-breakpoints: (
+  'x-small':320px,
   'small': 576px,
   'medium': 768px,
   'large': 992px,
@@ -88,3 +91,16 @@ $link-focus-color: darken($brand-color-four, 20%); // main link focus colour
 // -----------------------------------------------------------------------------------------------
 $spacing-size: 0.4rem;
 // ------
+
+// Dark theme colors
+$color-dark-background: #1a202c;
+$color-dark-surface: #2d3748;
+$color-dark-border: #4a5568;
+$color-dark-text: #f7fafc;
+$color-dark-text-light: #a0aec0;
+
+// Dark theme status colors
+$color-dark-success-bg: rgba(6, 78, 59, 0.3);
+$color-dark-success-text: #31c48d;
+$color-dark-error-bg: rgba(127, 29, 29, 0.3);
+$color-dark-error-text: #f98080;

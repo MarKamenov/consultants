@@ -1,11 +1,14 @@
 @let currentTheme = isDarkTheme();
 <div class="content">
-  <header>
-    <h1 class="content__title">List of consultants</h1>
-    <div class="content__buttons">
-      <button class="content__order" (click)="toggleOrder()"> {{ isAscendingSort() ? 'Ascending' : 'Descending'
+  <header class="content__header">
+    <h1 class="content__header__title">List of consultants</h1>
+    <app-pagination />
+    <div class="content__header__buttons">
+      <button class="content__header__buttons__order" (click)="toggleOrder()"> {{ isAscendingSort() ? 'Ascending' :
+        'Descending'
         }}</button>
-      <button class="content__theme" (click)="toggleTheme()"> {{ currentTheme ? '&#127770;' : '&#127774;'
+      <button class="content__header__buttons__theme" (click)="toggleTheme()"> {{ currentTheme ? '&#127770;' :
+        '&#127774;'
         }}</button>
     </div>
   </header>

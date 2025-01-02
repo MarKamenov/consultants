@@ -6,38 +6,45 @@
   margin: 2rem auto 0;
   @include padding(0px, 1rem, 0px, 1rem);
 
-  header {
+  &__header {
     display: flex;
-    align-items: center;
+    flex-wrap: wrap;
     justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    gap: 1rem;
 
-  }
+    &__title {
+      @include margin(0px, 0px, 0px, 0px);
 
-  &__title {
-    @include margin(2rem, 0px, 2rem, 0px);
-  }
+      @include screen-size('medium') {
+        @include margin(1rem, 0px, 1rem, 0px);
+      }
+    }
 
-  &__buttons {
-    display: flex;
-    gap: 1rem
-  }
+    &__buttons {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
 
-  &__order {
-    flex-shrink: 0;
-    @include padding(5px, 10px, 5px, 10px);
-    background-color: $secondary-background;
-    color: $brand-color-two;
-    @include font-size(14px);
-    @include border-radius(5px, 5px, 5px, 5px);
-    max-height: calculate-rem(42px);
-    min-width: calculate-rem(100px);
-    outline: none;
-    white-space: nowrap;
-  }
+      &__order {
+        flex-shrink: 0;
+        @include padding(5.5px, 10px, 5.5px, 10px);
+        background-color: $secondary-background;
+        color: $brand-color-two;
+        @include font-size(14px);
+        @include border-radius(5px, 5px, 5px, 5px);
+        max-height: calculate-rem(42px);
+        min-width: calculate-rem(100px);
+        outline: none;
+        white-space: nowrap;
+      }
 
-  &__theme {
-    @include border-radius(50px, 50px, 50px, 50px);
-    @include padding(2px, 10px, 2px, 10px);
+      &__theme {
+        @include border-radius(5px, 5px, 5px, 5px);
+        @include padding(4px, 10px, 4px, 10px);
+      }
+    }
   }
 
   &__list {

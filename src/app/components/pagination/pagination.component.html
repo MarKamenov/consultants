@@ -1,0 +1,35 @@
+<div class="pagination">
+  <div class="pagination__controls">
+    <button class="pagination__button" (click)="paginationService.previousPage()"
+      [disabled]="paginationService.currentPage() === 1">
+      Previous
+    </button>
+
+    <div class="pagination__pages">
+      @for (page of getVisiblePages(); track page) {
+      <button class="pagination__page-button"
+        [class.pagination__page-button--active]="page === paginationService.currentPage()"
+        (click)="paginationService.setPage(page)">
+        {{ page }}
+      </button>
+      }
+    </div>
+
+    <button class="pagination__button" (click)="paginationService.nextPage()"
+      [disabled]="paginationService.currentPage() === paginationService.totalPages()">
+      Next
+    </button>
+  </div>
+
+  <div class="pagination__per-page">
+    <label htmlFor="items_per_page">Items per page:</label>
+    <span class="sr-only">Togggle Dropdown</span>
+    <select id="items_per_page" title="Items pre page" name="items_per_page" class="pagination__select"
+      [value]="paginationService.itemsPerPage()" (change)="onItemsPerPageChange($event)">
+      <option value="5">5</option>
+      <option value="10">10</option>
+      <option value="20">20</option>
+      <option value="50">50</option>
+    </select>
+  </div>
+</div>
