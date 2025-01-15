@@ -43,7 +43,7 @@ export class ConsultantsState implements NgxsOnInit {
   public loadList({
     patchState,
   }: StateContext<IConsultantsModel>): Observable<Consultants> {
-    return this.consultantsService.consultantstems$().pipe(
+    return this.consultantsService.consultants$().pipe(
       tap((result: Consultants) => {
         const newstate = {
           consultants: {

@@ -7,9 +7,12 @@
       <button class="content__header__buttons__order" (click)="toggleOrder()"> {{ isAscendingSort() ? 'Ascending' :
         'Descending'
         }}</button>
-      <button class="content__header__buttons__theme" (click)="toggleTheme()"> {{ currentTheme ? '&#127770;' :
-        '&#127774;'
-        }}</button>
+      <button class="content__header__buttons__theme" (click)="toggleTheme()">
+        @if (currentTheme) {
+        <app-night />
+        } @else {
+        <app-day />
+        }</button>
     </div>
   </header>
   <section>

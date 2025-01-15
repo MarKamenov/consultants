@@ -16,7 +16,7 @@ export class ConsultantsService {
   /**
    * Gets: gets list of consultants ,
    */
-  public consultantstems$ = (query?: string): Observable<Consultants> => {
+  public consultants$ = (query?: string): Observable<Consultants> => {
     let params = new HttpParams()
       .set('page', this.paginationService.currentPage())
       .set('per_page', this.paginationService.itemsPerPage());
