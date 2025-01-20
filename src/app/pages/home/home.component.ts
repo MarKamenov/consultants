@@ -21,10 +21,6 @@ export class HomeComponent {
   constructor() {
     // Create an effect to watch for pagination changes
     effect(() => {
-      // Access signals to create dependencies
-      this.paginationService.currentPage();
-      this.paginationService.itemsPerPage();
-      // call api if any of the above signals change
       this.store.dispatch(new LoadList())
     });
   }
