@@ -1,4 +1,4 @@
-import { PaginationService } from '../../../services';
+import { PaginationService, ThemeService } from '../../../services';
 import { Component, inject } from '@angular/core';
 
 @Component({
@@ -8,6 +8,8 @@ import { Component, inject } from '@angular/core';
 })
 export class PaginationComponent {
   protected paginationService = inject(PaginationService);
+  protected themeService = inject(ThemeService)
+  protected isDarkTheme = this.themeService.isDarkTheme();
 
   getVisiblePages(): number[] {
     const currentPage = this.paginationService.currentPage();

@@ -1,6 +1,7 @@
+@let darkTheme = isDarkTheme();
 <div class="pagination">
   <div class="pagination__controls">
-    <button class="pagination__button" (click)="paginationService.previousPage()"
+    <button class="pagination__button" [class.dark]="darkTheme" (click)="paginationService.previousPage()"
       [disabled]="paginationService.currentPage() === 1">
       Previous
     </button>
@@ -15,14 +16,14 @@
       }
     </div>
 
-    <button class="pagination__button" (click)="paginationService.nextPage()"
+    <button class="pagination__button" [class.dark]="darkTheme" (click)="paginationService.nextPage()"
       [disabled]="paginationService.currentPage() === paginationService.totalPages()">
       Next
     </button>
   </div>
 
   <div class="pagination__per-page">
-    <label htmlFor="items_per_page">Items per page:</label>
+    <label htmlFor="items_per_page" [class.dark]="darkTheme">Items per page:</label>
     <span class="sr-only">Togggle Dropdown</span>
     <select id="items_per_page" title="Items pre page" name="items_per_page" class="pagination__select"
       [value]="paginationService.itemsPerPage()" (change)="onItemsPerPageChange($event)">

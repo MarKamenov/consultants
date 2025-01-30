@@ -55,6 +55,12 @@
     align-items: center;
     gap: 0.5rem;
     color: $brand-color-two;
+
+    label {
+      @include dark-mode {
+        color: $color-dark-text;
+      }
+    }
   }
 
   &__select {

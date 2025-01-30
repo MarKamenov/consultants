@@ -17,6 +17,10 @@
     &__title {
       @include margin(0px, 0px, 0px, 0px);
 
+      @include dark-mode {
+        color: $color-dark-text;
+      }
+
       @include screen-size('medium') {
         @include margin(1rem, 0px, 1rem, 0px);
       }
@@ -42,6 +46,12 @@
 
       &__theme {
         @include border-radius(5px, 5px, 5px, 5px);
+      }
+    }
+
+    &__sort {
+      @include dark-mode {
+        color: $color-dark-text;
       }
     }
   }

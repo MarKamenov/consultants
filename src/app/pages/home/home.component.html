@@ -1,15 +1,15 @@
-@let currentTheme = isDarkTheme();
+@let darkTheme = isDarkTheme();
 <div class="content">
   <header class="content__header">
-    <h1 class="content__header__title">List of consultants</h1>
+    <h1 class="content__header__title" [class.dark]="darkTheme">List of consultants</h1>
     <app-pagination />
     <div class="content__header__buttons">
-      <p>Sort by:</p>
+      <p class="content__header__sort" [class.dark]="darkTheme">Sort by:</p>
       <button class="content__header__buttons__order" (click)="toggleOrder()"> {{ isAscendingSort() ? 'Ascending' :
         'Descending'
         }}</button>
       <button class="content__header__buttons__theme" (click)="toggleTheme()">
-        @if (currentTheme) {
+        @if (darkTheme) {
         <app-night />
         } @else {
         <app-day />
