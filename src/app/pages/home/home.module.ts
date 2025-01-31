@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home.component';
 import { CardModule, PaginationComponent } from '../../components';
-import { DayComponent, NightComponent } from '../../svgs';
+import { DayComponent, NightComponent, UpdownComponent } from '../../svgs';
 
 
 @NgModule({
@@ -11,7 +11,7 @@ import { DayComponent, NightComponent } from '../../svgs';
     CommonModule,
     CardModule,
     PaginationComponent,
-    DayComponent, NightComponent,
+    DayComponent, NightComponent, UpdownComponent,
     RouterModule.forChild([{ path: '', component: HomeComponent }]),
   ],
   declarations: [HomeComponent],

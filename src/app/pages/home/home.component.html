@@ -5,9 +5,9 @@
     <app-pagination />
     <div class="content__header__buttons">
       <p class="content__header__sort" [class.dark]="darkTheme">Sort by:</p>
-      <button class="content__header__buttons__order" (click)="toggleOrder()"> {{ isAscendingSort() ? 'Ascending' :
-        'Descending'
-        }}</button>
+      <button class="content__header__buttons__order" (click)="toggleOrder()">
+        <app-updown [rotate]="isAscendingSort() ? 180 : 0" />
+      </button>
       <button class="content__header__buttons__theme" (click)="toggleTheme()">
         @if (darkTheme) {
         <app-night />
