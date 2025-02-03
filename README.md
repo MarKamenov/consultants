@@ -26,6 +26,10 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 Run `yarn test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
+## Deployment
+
+This project is deployed on Vercel and can be accessed at: [https://v0-consultants-imvn4mwd4ge.vercel.app/home?page=1&per_page=10](https://v0-consultants-imvn4mwd4ge.vercel.app/home?page=1&per_page=10)
+
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
