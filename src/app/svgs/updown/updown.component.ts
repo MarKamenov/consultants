@@ -5,7 +5,6 @@ import { Component, computed, input } from '@angular/core';
   templateUrl: './updown.component.html',
 })
 export class UpdownComponent {
-  protected rotate = input<number>(0)
-
-  protected rotateStyle = computed(() => `rotate(${this.rotate()}deg)`);
+  rotate = input<number>(0)
+  rotateStyle = computed(() => `rotate(${this.rotate()}deg)`);
 }

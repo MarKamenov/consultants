@@ -6,6 +6,6 @@ export class LoadList {
 export class ToggleOrder {
   static readonly type = '[CONSULTANTS] Toggle Order';
 
-  constructor(public isAscending: boolean) {}
+  constructor(public isAscending: boolean) { }
 }
 

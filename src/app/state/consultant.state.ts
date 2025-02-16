@@ -1,4 +1,4 @@
-import { Action, NgxsOnInit, Selector, State, StateContext } from '@ngxs/store';
+import * as store from '@ngxs/store';
 import { Observable } from 'rxjs';
 import { inject, Injectable } from '@angular/core';
 import { catchError, tap } from 'rxjs/operators';
@@ -13,7 +13,7 @@ interface IConsultantsModel {
   isAscending: boolean
 }
 
-@State<IConsultantsModel>({
+@store.State<IConsultantsModel>({
   name: 'consultants',
   defaults: {
     consultants: {} as Consultants,
@@ -21,28 +21,28 @@ interface IConsultantsModel {
   },
 })
 @Injectable()
-export class ConsultantsState implements NgxsOnInit {
+export class ConsultantsState implements store.NgxsOnInit {
 
-  private consultantsService = inject(ConsultantsService)
+  private readonly consultantsService = inject(ConsultantsService)
 
-  ngxsOnInit(ctx: StateContext<IConsultantsModel>) {
+  ngxsOnInit(ctx: store.StateContext<IConsultantsModel>) {
     ctx.dispatch(new LoadList());
   }
 
-  @Selector()
+  @store.Selector()
   static consultants(state: IConsultantsModel): IConsultant[] {
     return state?.consultants?.records?.page || [];
   }
 
-  @Selector()
+  @store.Selector()
   static isAscending(state: IConsultantsModel): boolean {
     return state.isAscending;
   }
 
-  @Action(LoadList)
+  @store.Action(LoadList)
   public loadList({
     patchState,
-  }: StateContext<IConsultantsModel>): Observable<Consultants> {
+  }: store.StateContext<IConsultantsModel>): Observable<Consultants> {
     return this.consultantsService.consultants$().pipe(
       tap((result: Consultants) => {
         const newstate = {
@@ -77,9 +77,9 @@ export class ConsultantsState implements NgxsOnInit {
     );
   }
 
-  @Action(ToggleOrder)
+  @store.Action(ToggleOrder)
   toggleOrder(
-    { getState, setState }: StateContext<IConsultantsModel>,
+    { getState, setState }: store.StateContext<IConsultantsModel>,
     { isAscending }: ToggleOrder) {
     const state = getState();
     const newConsultants = [...state.consultants.records.page].sort((a, b) => {

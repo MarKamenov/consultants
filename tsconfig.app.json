@@ -1,20 +1,27 @@
 /* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
   "extends": "./tsconfig.base.json",
-  "compilerOptions": {
-    "outDir": "./out-tsc/app",
-    "types": []
-  },
-  "files": [
-    "src/main.ts",
-    "src/polyfills.ts"
-  ],
-  "include": [
-    "src/**/*.d.ts",
-  ],
-  "angularCompilerOptions": {
-    "strictInjectionParameters": true,
-    "strictTemplates": true,
-    "disableTypeScriptVersionCheck": true
-  }
+    "compileOnSave": false,
+    "compilerOptions": {
+      "outDir": "./dist/out-tsc",
+      "strict": true,
+      "noImplicitOverride": true,
+      "noPropertyAccessFromIndexSignature": true,
+      "noImplicitReturns": true,
+      "noFallthroughCasesInSwitch": true,
+      "skipLibCheck": true,
+      "isolatedModules": true,
+      "esModuleInterop": true,
+      "experimentalDecorators": true,
+      "moduleResolution": "bundler",
+      "importHelpers": true,
+      "target": "ES2022",
+      "module": "ES2022"
+    },
+    "angularCompilerOptions": {
+      "enableI18nLegacyMessageIdFormat": false,
+      "strictInjectionParameters": true,
+      "strictInputAccessModifiers": true,
+      "strictTemplates": true
+    }
 }
